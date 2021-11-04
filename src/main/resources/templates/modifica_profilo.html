@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>SetupProfile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <h1>Modifica il tuo profilo</h1>
+
+  <form action="#" th:action="@{/new_user}" th:object="${user}" method="post">
+    <img th:src='${user.photo}'/>
+    <p>username: <input type="text" th:field="*{username}" th:placeholder="${user.username}"/></p>
+    <p>password: <input type="password" th:field="*{password}" placeholder="nuova password"/></p>
+    <p>address: <input type="address" th:field="*{address}" th:placeholder="${user.address}"/></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+  </form>
+
+
+
+</body>
+</html>

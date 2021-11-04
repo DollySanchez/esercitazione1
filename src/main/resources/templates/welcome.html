@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>WelcomePage</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <h1>Welcome!</h1>
+  <img th:src='${user.photo}'/>
+  <br>
+  <p th:text="'username: ' + ${user.username}" />
+  <p th:text="'password: ' + ${user.password}" />
+  <p></p>
+  <a href="/profilo">PROFILO</a><p></p>
+  <a href="/carrello">CARRELLO</a><p></p>
+  <a href="/ordini">ORDINI</a><p></p>
+  <a href="/logout">Log out</a><p></p>
+</body>
+</html>

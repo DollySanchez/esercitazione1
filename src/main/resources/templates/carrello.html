@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Carrello</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    table, th, td {
+      border-style:solid;
+      border-color: #ff5050;
+      border-collapse: collapse;
+    }
+</style>
+</head>
+
+<body>
+  <h1>Carrello</h1>
+  <form action="#" th:action="@{/add_item}" th:object="${formData}" method="post">
+    <label>Choose an item:</label>
+    <select th:field="*{itemCode}">
+      <option th:each="item:${lista}"
+              th:text="${item.name}"
+              th:value="${item.code}"
+      ></option>
+      <p></p>
+    </select>
+    <br><br>
+    <input type="submit" value="AGGIUNGI">
+  </form>
+<p></p>
+  <h2>Items nel tuo Carrello:</h2>
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <tr th:each="item:${carrello}">
+    <td th:text="${item.code}"></td>
+    <td th:text="${item.name}"></td>
+    <td th:text="${item.prize}"></td>
+  </tr>
+  <tr>
+    <td colspan="2">TOTALE:</td>
+    <td th:text="${currentTotal}"></td>
+  </tr>
+</table>
+<p></p>
+<a href="/newOrder">Completare Ordine</a>
+<a href="/welcome">HOME</a>
+
+
+
+</body>
+</html>
